@@ -1,0 +1,25 @@
+{
+  "name": "angled-underline-fill",
+  "version": "1.0.0",
+  "description": "Paintlet to create an underline with an angle at the end and some fill. To use with CSS Houdini Paint",
+  "main": "angled-underline-fill.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cacalo/angled-underline-fill-paintlet.git"
+  },
+  "keywords": [
+    "houdini",
+    "css",
+    "paintlet",
+    "underline"
+  ],
+  "author": "Gonzalo Andrés Bechara Baladi",
+  "license": "GNU GPL V3",
+  "bugs": {
+    "url": "https://github.com/cacalo/angled-underline-fill-paintlet/issues"
+  },
+  "homepage": "https://github.com/cacalo/angled-underline-fill-paintlet#readme"
+}

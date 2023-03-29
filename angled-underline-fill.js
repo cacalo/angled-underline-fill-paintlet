@@ -9,39 +9,45 @@ class angledUnderlineFill{
     ];
   }
   paint(ctx, size, props) {
-    console.log("ctx",ctx,"TAMAÑO",size,"Props",props);
+    //Props
+    const linesWidth = parseFloat(props.get("--lines-width")) || 3;
+    const linesFillColor =  String(props.get("--lines-fill-color")) || 'white';
+    const linesFillHeight =  parseFloat(props.get("--lines-fill-height")) || 10;
+    const linesBorderColor =  String(props.get("--lines-border-color")) || 'black';
+    const linesAngle =  parseFloat(props.get("--lines-angle")) || 20;
+
+    console.log("HOLIS",linesWidth,linesFillColor,linesFillHeight,linesBorderColor,linesAngle)
 
     //Auxiliary calculations
     const yBase = size.height;
-    const yBase2 = size.height - props.get("--lines-width");
-    const yBase3 = size.height - props.get("--lines-fill-height");
+    const yBase2 = size.height - linesWidth;
+    const yBase3 = size.height - linesFillHeight;
     
     //Fill
     ctx.beginPath()
-    const catetoAdjFill = Math.tan(props.get("--lines-angle")*Math.PI/180 )*props.get("--lines-fill-height");
-    ctx.strokeStyle = "--lines-fill-color";
-    ctx.fillStyle = props.get("--lines-fill-color");
-    console.log(props.get("--lines-width"))
+    const catetoAdjFill = Math.tan(linesAngle*Math.PI/180 )*props.get("--lines-fill-height");
+    ctx.strokeStyle = linesFillColor;
+    ctx.fillStyle = linesFillColor;
     ctx.moveTo(0,yBase);
     ctx.lineTo(size.width,yBase)
     ctx.lineTo(size.width-catetoAdjFill,yBase3)
-    ctx.lineTo(size.width-catetoAdjFill-props.get("--lines-width"),yBase3)
+    ctx.lineTo(size.width-catetoAdjFill-linesWidth,yBase3)
     ctx.lineTo(0,yBase3)
     ctx.closePath();
     ctx.fill()
 
     //Line
-    const catetoAdjLinea = Math.tan(props.get("--lines-angle")*Math.PI/180 )*yBase2;
-    const catetoAdjLineaBajo = Math.tan(props.get("--lines-angle")*Math.PI/180 )*props.get("--lines-width");
+    const catetoAdjLinea = Math.tan(linesAngle*Math.PI/180 )*yBase2;
+    const catetoAdjLineaBajo = Math.tan(linesAngle*Math.PI/180 )*linesWidth;
     ctx.beginPath();
-    ctx.strokeStyle = props.get("--lines-border-color");
-    ctx.fillStyle = props.get("--lines-border-color");
+    ctx.strokeStyle = linesBorderColor;
+    ctx.fillStyle = linesBorderColor;
     ctx.lineWidth= 1;
     ctx.moveTo(0,yBase);
     ctx.lineTo(size.width,yBase)
     ctx.lineTo(size.width-catetoAdjLinea,0)
-    ctx.lineTo(size.width-catetoAdjLinea-props.get("--lines-width")+1,0)
-    ctx.lineTo(size.width-props.get("--lines-width")-catetoAdjLineaBajo,yBase2)
+    ctx.lineTo(size.width-catetoAdjLinea-linesWidth+1,0)
+    ctx.lineTo(size.width-linesWidth-catetoAdjLineaBajo,yBase2)
     ctx.lineTo(0,yBase2)
     ctx.closePath();
     ctx.fill()
