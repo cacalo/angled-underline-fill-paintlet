@@ -16,8 +16,6 @@ class angledUnderlineFill{
     const linesBorderColor =  String(props.get("--lines-border-color")) || 'black';
     const linesAngle =  parseFloat(props.get("--lines-angle")) || 20;
 
-    console.log("HOLIS",linesWidth,linesFillColor,linesFillHeight,linesBorderColor,linesAngle)
-
     //Auxiliary calculations
     const yBase = size.height;
     const yBase2 = size.height - linesWidth;
